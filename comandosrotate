@@ -1,0 +1,3 @@
+sudo chown -R mongodb:mongodb /var/log/mongodb/*
+chmod 777 -R /var/log/mongodb
+

@@ -1,0 +1,17 @@
+/var/log/mongodb/mongod.log {
+  su mongodb mongodb
+  daily 
+  size 500M
+  rotate 3
+  missingok
+  compress
+  delaycompress
+  dateext
+  dateformat -%Y-%m-%d-%s-%H:%M
+  notifempty
+  create 640 root root
+  sharedscripts
+  postrotate
+    /bin/kill -SIGUSR1 `cat /var/run/mongodb/mongod.pid 2>/dev/null` >/dev/null 2>&1
+  endscript
+}
